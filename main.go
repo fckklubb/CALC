@@ -56,20 +56,13 @@ func int2roman(x int) string {
 }
 
 func roman2int(x string) (int, error) {
-	var res int
-
 	for i := 0; i < len(ten_nums); i++ {
 		if ten_nums[i] == x {
-			res = i + 1
-			i = len(ten_nums)
+			return i + 1, nil
 		}
 	}
 
-	if res == 0 {
-		return res, errors.New(ERR_OUT_OF_RANGE)
-	} else {
-		return res, nil
-	}
+	return 0, errors.New(ERR_OUT_OF_RANGE)
 }
 
 func parse_str(str string) (string, []string, error) {
